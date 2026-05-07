@@ -25,7 +25,7 @@ def analyze_video():
 
     tmp_path = None
     try:
-        with tempfile.NamedTemporaryFile(suffix=".webm", delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".tmp", delete=False) as tmp:
             file.save(tmp.name)
             tmp_path = tmp.name
 
