@@ -5,6 +5,13 @@ from analyze_video import analyze
 
 app = Flask(__name__)
 
+@app.after_request
+def add_cors_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "https://www.skillsift.xyz"
+    response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, X-Analyzer-Secret"
+    return response
+
 SECRET = os.environ.get("ANALYZER_SECRET", "")
 
 
